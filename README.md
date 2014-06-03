@@ -1,7 +1,7 @@
 propertify
 ==========
 
-# Install
+## Install
 
 ```
 $ npm install
