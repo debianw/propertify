@@ -19,8 +19,6 @@ module.exports = function (page, router) {
    */
 
   page('/about-us', function (ctx) {
-    console.log('about page');
-    
     router.setState({
       component: <Layout> <View /> </Layout>
     });

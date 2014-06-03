@@ -46,7 +46,7 @@ module.exports = React.createClass({
       });
     });
 
-    page.start();
+    page();
   },
 
   /**

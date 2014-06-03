@@ -11,7 +11,8 @@ module.exports = React.createClass({
   render: function () {
     
     // client
-    if (is.client()) {
+    /*if (is.client()) {
+      console.log('serving client layout');
       return (
         <div>
           <nav>
@@ -21,12 +22,13 @@ module.exports = React.createClass({
             </ul>
           </nav>
 
-          {this.props.children}
+          <div id="content"> {this.props.children} </div>
         </div>
       );
-    }
+    }*/
     // server
-    else {
+    //else {
+      console.log('serving server layout');
       return (
         <html>
           <head>
@@ -36,20 +38,20 @@ module.exports = React.createClass({
           <body>
             <div id="page">
 
-              <div>
-                <nav>
-                  <ul>
-                    <li> <a href="/">Home</a> </li>
-                    <li> <a href="/about-us">About us</a> </li>
-                  </ul>
-                </nav>
+              <nav>
+                <ul>
+                  <li> <a href="/">Home</a> </li>
+                  <li> <a href="/about-us">About us</a> </li>
+                </ul>
+              </nav>
 
-                {this.props.children}
-              </div>
+              <div id="content"> {this.props.children} </div>
             </div>
+
+            <script src="js/client.js"></script>
           </body>
         </html>
       );
-    }
+    //}
   }
 })

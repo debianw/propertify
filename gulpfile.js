@@ -7,13 +7,14 @@ var gulp = require('gulp')
   , uglify = require('gulp-uglify')
   , _if = require('gulp-if')
   , rename = require('gulp-rename')
+  , react = require('gulp-react')
   , env = process.env.NODE_ENV || 'development';
 
 /**
  * @task client-js
  */
 
-gulp.task('client-js', function () {
+/*gulp.task('client-js', function () {
   return gulp.src('lib/client/boot/index.js')
 
     // Browserify
@@ -29,5 +30,33 @@ gulp.task('client-js', function () {
     .pipe(rename('client.js'))
 
     // Destination
+    .pipe(gulp.dest('build/'+env+'/js'));
+});*/
+
+
+/**
+ * @task jsx
+ */
+
+gulp.task('jsx', function () {
+  return gulp.src('lib/**/*.jsx')
+    .pipe(react())
+    .pipe(gulp.dest('lib'));
+});
+
+/**
+ *
+ */
+
+gulp.task('client', function () {
+  return gulp.src('client.js')
+    .pipe(browserify({
+      debug: env === 'development'
+    }))
+
+    .pipe(_if(env === 'production', uglify()))
+
+    .pipe(rename('client.js'))
+
     .pipe(gulp.dest('build/'+env+'/js'));
 });
