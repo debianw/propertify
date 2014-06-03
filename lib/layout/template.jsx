@@ -8,14 +8,6 @@ module.exports = React.createClass({
    *
    */
 
-  goToHome: function (e) {
-    console.log('go to home page');
-  },
-
-  /**
-   *
-   */
-
   render: function () {
     return (
       <div className="page">
@@ -25,7 +17,7 @@ module.exports = React.createClass({
 
         <nav>
           <ul>
-            <li> <a href="/" onClick={this.goToHome}>Home</a> </li>
+            <li> <a href="/">Home</a> </li>
             <li> <a href="/about-us">About us</a> </li>
           </ul>
         </nav>

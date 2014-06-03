@@ -1,4 +1,10 @@
 propertify
 ==========
 
-CMS Property app
+# Install
+
+```
+$ npm install
+$ gulp jsx client
+$ node server
+```
